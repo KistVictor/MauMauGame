@@ -42,8 +42,8 @@ public class Game {
         finish = false;
         deck = new Deck();
         deck.shuffle();
-        for (Player player : playerList) {
-            player.setHand(new ArrayList<Card>());
+        for (Player player : playerList) {  
+            player.setHand(new ArrayList<Card>());      // Anda por todos os player setando uma nova "mão" para cada um
         }
     }
 
@@ -51,8 +51,8 @@ public class Game {
     public void dealCards() {
         for (Integer i = 0; i < 5; i++) {
             for (j = 0; j < numberPlayer; j++) {
-                playerList.get(j).addCard(deck.getDeck().get(0));
-                deck.getDeck().remove(0);
+                playerList.get(j).addCard(deck.getDeck().get(0));   // Adiciona a primeira carta do monte na mão do jogador
+                deck.getDeck().remove(0);       // Remove a carta do monte
             }
         }
     }
@@ -67,7 +67,7 @@ public class Game {
                     playerList.get(j).addCard(deck.getDeck().get(0));   // Adiciona mais uma carta na mão do jogador
                     deck.getDeck().remove(0);   // Remove a carta do deck
                 } else {
-                    j = playCard(j);
+                    j = playCard(j); //Inicia a jogada da carta passando o index do jogador atual
                 }
 
                 if (finish == true) { // Termina imediatamente quando alguem ganha
